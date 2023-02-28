@@ -25,7 +25,8 @@ texarray(m)
 
 This will output the LaTeX code for the matrix:
 
-``` sql
+<<<<<<< HEAD
+``` 
 \begin{array}{ccc}
  1 & 4 & 7 \\
  2 & 5 & 8 \\
@@ -33,7 +34,10 @@ This will output the LaTeX code for the matrix:
 \end{array}
 ```
 
+<<<<<<< HEAD
 You can customize the appearance of the table using the 'bracket.type', 'bar.pos', and inline arguments. See the package documentation for more information.
+=======
+You can customize the appearance of the table using the 'bracket.type', 'bar.pos', and 'inline arguments'. See the package documentation for more information.
 
 ### Contributing
 
