@@ -9,11 +9,14 @@ texarray(mat, barpos = 0, bracket = "", small = FALSE)
 \arguments{
 \item{mat}{A matrix to convert to LaTeX format.}
 
-\item{barpos}{The number of columns from the right where to place the vertical line. Defaults to 0 (no vertical line).}
+\item{barpos}{The number of columns from the right where to place the vertical line. 
+Defaults to 0 (no vertical line).}
 
-\item{bracket}{The type of bracket to use for the array. Defaults to none.}
+\item{bracket}{The type of bracket to use for the array. Defaults to none.
+Valid options include "", "(", ")", "[", "]", "{", "}", "|", \lceil, and \lfloor.}
 
-\item{small}{Boolean flag indicating whether to use the small matrix format for inline use. Defaults to FALSE.}
+\item{small}{Boolean flag indicating whether to use the small matrix format for inline use. 
+Defaults to FALSE.}
 }
 \value{
 A character vector containing the LaTeX code for the matrix in \code{array} environment format.
@@ -22,9 +25,33 @@ A character vector containing the LaTeX code for the matrix in \code{array} envi
 Converts a matrix to a LaTeX table format using the \code{array} environment.
 }
 \examples{
+# Create a 2x3 matrix
 mat <- matrix(1:6, nrow = 2)
+
+# Convert matrix to LaTeX format without vertical line
 texarray(mat)
 
+# Convert matrix to LaTeX format with vertical line at second column
+texarray(mat, barpos = 1)
+
+# Convert matrix to LaTeX format with square brackets
+texarray(mat, bracket = "[")
+
+# Convert matrix to LaTeX format with small matrix formatting
+texarray(mat, small = TRUE)
+
+# Attempt to convert a non-matrix input
+texarray(1:6) # will throw an error
+
+# Attempt to set barpos greater than the number of columns minus one
+texarray(mat, barpos = 3) # will throw an error
+
+# Attempt to set an invalid bracket type
+texarray(mat, bracket = "{|}") # will throw an error
+
+}
+\seealso{
+\code{\link{matrix}}, \code{\link{paste}}, \code{\link{substr}}, \code{\link{strrep}}
 }
 \author{
 Gabe Osmo
