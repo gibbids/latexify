@@ -2,12 +2,14 @@ Package: latexify
 Title: A package for converting R objects to LaTeX format
 Version: 0.1.0
 Authors@R: 
-  person("Gabriel", "Osmo", email = "gabeosmo@outlook.com", role = c("aut", "cre"))
+  person("Gabriel",
+         "Osmo",
+         email = "gabeosmo@outlook.com",
+         role = c("aut", "cre"))
 GitHubUsername: gibbids
 Description: The latexify package provides functions for converting R objects to LaTeX format. Currently, the only function in the package is `texarray`, which converts a matrix to a LaTeX array. The package is designed to simplify the process of creating LaTeX documents with data generated in R. 
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
 Imports: graphics, stats
 RoxygenNote: 7.2.3
 Suggests: 
