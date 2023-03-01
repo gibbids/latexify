@@ -24,8 +24,6 @@ texarray(m)
 ```
 
 This will output the LaTeX code for the matrix:
-
-<<<<<<< HEAD
 ``` 
 \begin{array}{ccc}
  1 & 4 & 7 \\
@@ -35,9 +33,8 @@ This will output the LaTeX code for the matrix:
 ```
 
 <<<<<<< HEAD
-You can customize the appearance of the table using the 'bracket', 'bar.pos', and inline arguments. See the package documentation for more information.
-=======
-You can customize the appearance of the table using the 'bracket.type', 'barpos', and 'inline arguments'. See the package documentation for more information.
+<<<<<<< HEAD
+You can customize the appearance of the table using the 'bracket', 'barpos', and inline arguments. See the package documentation for more information.
 
 ### Contributing
 
