@@ -11,4 +11,7 @@ Description: The latexify package provides functions for converting R objects to
 License: GPL-3
 Encoding: UTF-8
 Imports: graphics, stats
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
