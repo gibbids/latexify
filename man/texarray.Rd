@@ -13,7 +13,7 @@ texarray(mat, barpos = 0, bracket = "", small = FALSE)
 Defaults to 0 (no vertical line).}
 
 \item{bracket}{The type of bracket to use for the array. Defaults to none.
-Valid options include "", "(", ")", "[", "]", "{", "}", "|", \lceil, and \lfloor.}
+Valid options include "", "round", "square", "curl", and "bar".}
 
 \item{small}{Boolean flag indicating whether to use the small matrix format for inline use. 
 Defaults to FALSE.}

@@ -6,7 +6,7 @@
 #' @param barpos The number of columns from the right where to place the vertical line. 
 #'               Defaults to 0 (no vertical line).
 #' @param bracket The type of bracket to use for the array. Defaults to none.
-#'                 Valid options include "", "(", ")", "[", "]", "{", "}", "|", \lceil, and \lfloor.
+#'                 Valid options include "", "round", "square", "curl", and "bar".
 #' @param small Boolean flag indicating whether to use the small matrix format for inline use. 
 #'              Defaults to FALSE.
 #'
@@ -52,26 +52,32 @@ texarray <- function(mat, barpos = 0, bracket = "", small = FALSE) {
   # Check input
   if (!is.matrix(mat)) stop("Input must be a matrix.")
   if (barpos < 0 || barpos > (NCOL-1)) stop("barpos must be between 0 and the number of columns in the matrix minus 1.")
-  if (bracket != "" && bracket != "(" && bracket != "[" && bracket != "{" && bracket != "|" && bracket != "\\lceil" && bracket != "\\lfloor") {
-    stop("Invalid bracket type. Choose from '', '(', '[', '{', '|', \\lceil, or \\lfloor.")
+  if (bracket != "" && bracket != "round" && bracket != "square" && bracket != "curl" && bracket != "bar") {
+    stop("Invalid bracket type. Choose from '', 'round', 'square', 'curl', or 'bar'")
   }
   
-  # Determine bracket type
-  if (bracket == "") {
-    open_bracket <- ""
-    close_bracket <- ""
-  } else if (bracket == "|" && barpos == 0) {
-    open_bracket <- "\\left"
-    close_bracket <- "\\right|"
-  } else {
-    open_bracket <- paste0("\\left", bracket)
-    close_bracket <- paste0("\\right",
-                            ifelse(bracket %in% c("|",
-                                                  "\\lceil",
-                                                  "\\lfloor"),
-                                   "",
-                                   bracket))
-  }
+  #create bracket dict
+  input <- c("",
+             "round",
+             "square",
+             "curl",
+             "bar")
+  leftb <- c("",
+             "\\left(",
+             "\\left[",
+             "\\left{",
+             "\\left|")
+  rightb <- c("",
+             "\\right)",
+             "\\right]",
+             "\\right}",
+             "\\right|")
+  bracketdict <- data.frame(row.names = input, leftb, rightb)
+  
+  # create open and close brackets
+  open_bracket <- bracketdict[bracket,]$leftb
+  close_bracket <- bracketdict[bracket,]$rightb
+  
   
   # Create the column formatting
   col_format = strrep('c', NCOL)
